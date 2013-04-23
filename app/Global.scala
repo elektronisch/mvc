@@ -23,17 +23,19 @@ object Global extends GlobalSettings {
     case false => Guice.createInjector(new DevModule)
   }
 
-  override def getControllerInstance[A](clazz: Class[A]) = {
-    injector.getInstance(clazz)
+  override def getControllerInstance[A](controllerClass : scala.Predef.Class[A]) : A = {
+    injector.getInstance(controllerClass)
   }
 
   override def onStart(app: Application) {
     super.onStart(app)
-    Logger.info("Application has started")
+
+    Logger.info("Application has started in mode " + Play.isProd)
   }
 
   override def onStop(app: Application) {
     super.onStop(app)
+
     Logger.info("Application shutdown...")
   }
 }
