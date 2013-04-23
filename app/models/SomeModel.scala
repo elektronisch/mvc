@@ -1,5 +1,4 @@
 package models
-
 import org.codehaus.jackson.annotate.JsonProperty
 
 class Employee {
