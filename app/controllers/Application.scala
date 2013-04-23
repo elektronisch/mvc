@@ -15,15 +15,16 @@ class Application extends Controller {
     Ok(views.html.index("Your new application is ready!!"))
   }
 
+
   /**
    * Sample of reverse route and route with parameter
    * @param name
    * @return
    */
   def hello(name:String) = Action {
-    request =>
     Ok("Hello " + name + "! from " + routes.Application.hello(name))
   }
+
 
   /**
    * Sample generation of json
