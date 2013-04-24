@@ -1,6 +1,6 @@
+import net.litola.SassPlugin
 import sbt._
 import Keys._
-import play.Project._
 
 object ApplicationBuild extends Build {
 
@@ -18,9 +18,7 @@ object ApplicationBuild extends Build {
     "com.tzavellas" % "sse-guice" % "0.7.1"
   )
 
-
-  val main = play.Project(appName, appVersion, appDependencies).settings(
+  val main = play.Project(appName, appVersion, appDependencies).settings(SassPlugin.sassSettings:_*
     // Add your own project settings here      
   )
-
 }
